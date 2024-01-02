@@ -9,6 +9,7 @@ using namespace std;
 class BSTIterator {
   // Time complexity O(n)
   // Space O(n)
+  int index;
   vector<TreeNode*> data;
   public:
     BSTIterator(TreeNode* root) {
@@ -23,14 +24,14 @@ class BSTIterator {
       inOrderFill(root->right, dataRef);
     }
 
-    // O(n)
     int next() {
-        int next = data[0]->val;
-        data.erase(data.begin());
-        return next;
+      if(index >= data.size())
+            return -1;
+      int next = data[index++]->val;
+      return next;
     }
 
     bool hasNext() {
-        return !data.empty();
+        return index < data.size();
     }
 };
