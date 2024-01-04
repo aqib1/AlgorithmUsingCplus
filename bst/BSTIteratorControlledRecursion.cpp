@@ -11,6 +11,8 @@ using namespace std;
 class BSTIterator {
 public:
     stack<TreeNode*> stack;
+    // time complexity O(k) where k is nearly constant
+    // Space complexity O(n)
     BSTIterator(TreeNode* root) {
         insertLeftNodes(root);
     }
@@ -22,6 +24,7 @@ public:
       }
     }
 
+    // time complexity O(k) where k is nearly constant
     int next() {
         TreeNode* pop = stack.top();
         stack.pop();
