@@ -11,6 +11,8 @@ public:
         return bst(nums, 0, nums.size() - 1);
     }
 
+    // Time complexity O(N)
+    // Space complexity OLog(N)
     TreeNode* bst(vector<int>& nums, int low, int high) {
       if(low > high)
         return nullptr;
