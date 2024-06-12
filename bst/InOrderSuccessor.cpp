@@ -7,56 +7,69 @@
 using namespace std;
 
 class InOrderSuccessor {
-  // Time complexity O(n)
-  // Space complexity O(n)
-  public:
-    TreeNode* successor(TreeNode* root, TreeNode* p) {
-      TreeNode* successor = nullptr;
-      while (root != nullptr) {
-        if (p->val > root->val) {
-            root = root->right;
-        } else {
-          successor = root;
-          root = root->left;
+    // Time complexity O(n)
+    // Space complexity O(n)
+public:
+    TreeNode *successorRecur(TreeNode *root, TreeNode *p) {
+        return successorRecur(root, p, nullptr);
+    }
+
+    TreeNode *successorRecur(TreeNode *root, TreeNode *p, TreeNode *successor) {
+        if (root == nullptr)
+            return successor;
+        if (p->val >= root->val) {
+            return successorRecur(root->right, p, successor);
         }
-      }
-      return successor;
+        return successorRecur(root->left, p, root);
+    }
+
+    TreeNode *successor(TreeNode *root, TreeNode *p) {
+        TreeNode *successor = nullptr;
+        while (root != nullptr) {
+            if (p->val > root->val) {
+                root = root->right;
+            } else {
+                successor = root;
+                root = root->left;
+            }
+        }
+        return successor;
     }
 
 
-  // Time complexity O(n) + O(n) = O2(n)
-  // Space complexity O(n)
-    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-      vector<TreeNode*> nodes;
-      inOrder(root, nodes);
-      for(int i = 0; i < nodes.size() - 1; i++) {
-        if(p->val == nodes[i]->val) {
-          return nodes[i + 1];
+    // Time complexity O(n) + O(n) = O2(n)
+    // Space complexity O(n)
+    TreeNode *inorderSuccessor(TreeNode *root, TreeNode *p) {
+        vector<TreeNode *> nodes;
+        inOrder(root, nodes);
+        for (int i = 0; i < nodes.size() - 1; i++) {
+            if (p->val == nodes[i]->val) {
+                return nodes[i + 1];
+            }
         }
-      }
-      return nullptr;
+        return nullptr;
     }
 
-    void inOrder(TreeNode* root, vector<TreeNode*>& nodes) {
-        if(root == nullptr) return;
+    void inOrder(TreeNode *root, vector<TreeNode *> &nodes) {
+        if (root == nullptr) return;
         inOrder(root->left, nodes);
-        if(root != nullptr)
-          nodes.push_back(root);
+        if (root != nullptr)
+            nodes.push_back(root);
         inOrder(root->right, nodes);
     }
 };
 
 
 int main() {
-  TreeNode node = TreeNode(2);
-  TreeNode left = TreeNode(1);
-  TreeNode right = TreeNode(3);
-  node.left = &left;
-  node.right = &right;
+    TreeNode node = TreeNode(2);
+    TreeNode left = TreeNode(1);
+    TreeNode right = TreeNode(3);
+    node.left = &left;
+    node.right = &right;
 
-  InOrderSuccessor obj = InOrderSuccessor();
-  const TreeNode* res = obj.inorderSuccessor(&node, &left);
-  cout << res->val;
+    InOrderSuccessor obj = InOrderSuccessor();
+    const TreeNode *res = obj.inorderSuccessor(&node, &left);
+    cout << res->val;
 
-  return 0;
+    return 0;
 }
