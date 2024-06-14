@@ -7,9 +7,25 @@
 using namespace std;
 
 class InOrderSuccessor {
-  // Time complexity O(n) + O(n) = O2(n)
+  // Time complexity O(n)
   // Space complexity O(n)
   public:
+    TreeNode* successor(TreeNode* root, TreeNode* p) {
+      TreeNode* successor = nullptr;
+      while (root != nullptr) {
+        if (p->val > root->val) {
+            root = root->right;
+        } else {
+          successor = root;
+          root = root->left;
+        }
+      }
+      return successor;
+    }
+
+
+  // Time complexity O(n) + O(n) = O2(n)
+  // Space complexity O(n)
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
       vector<TreeNode*> nodes;
       inOrder(root, nodes);
