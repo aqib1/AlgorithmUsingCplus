@@ -6,9 +6,9 @@
 using namespace std;
 
 class Solution {
-  // Time complexity O(n) + O(n)
-  // Space complexity O(n)
 public:
+  // Time complexity O(n)
+  // Space complexity O(n)
     bool isValidBstOptimal(TreeNode* root) {
       return inOrder(root, INT64_MIN, INT64_MAX);
     }
@@ -24,6 +24,8 @@ public:
                   inOrder(root->right, root->val, high);
     }
 
+  // Time complexity O(n) + O(n)
+  // Space complexity O(n)
     bool isValidBST(TreeNode* root) {
         vector<int> data;
         inOrder(root, data);
