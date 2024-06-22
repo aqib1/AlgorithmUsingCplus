@@ -9,6 +9,21 @@ class Solution {
   // Time complexity O(n) + O(n)
   // Space complexity O(n)
 public:
+    bool isValidBstOptimal(TreeNode* root) {
+      return inOrder(root, INT64_MIN, INT64_MAX);
+    }
+
+    bool inOrder(TreeNode* root, long low, long high) {
+      if(root == nullptr)
+        return true;
+
+      if(low >= root->val || high <= root->val)
+        return false;
+
+      return inOrder(root->left, low, root->val) &&
+                  inOrder(root->right, root->val, high);
+    }
+
     bool isValidBST(TreeNode* root) {
         vector<int> data;
         inOrder(root, data);
