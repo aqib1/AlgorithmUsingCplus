@@ -44,12 +44,28 @@ double pingalaPower(
     if (pow < 0)
         return 1 / pingalaPower(a, -pow);
 
-    const int x = pingalaPower(a, pow / 2);
+    const double x = pingalaPower(a, pow / 2);
     if (pow % 2 == 0)
         return x * x;
     return x * x * a;
 }
 
+// time complexity OLog(n)
+// space complexity O(1)
+double peasantPower(
+ const int a,
+ const long pow
+) {
+    if(pow == 0)
+        return 1;
+    if (pow == 1)
+        return a;
+    if (pow < 0)
+        return 1 / peasantPower(a, -pow);
+    if (pow % 2 == 0)
+        return peasantPower(a * a, pow / 2);
+    return a * peasantPower(a * a, (pow - 1) / 2);
+}
 
 int main() {
     cout << "This is a test" << endl;
