@@ -69,7 +69,8 @@ double peasantPower(
 
 int main() {
     cout << "This is a test" << endl;
-    cout << "pow(2, 4) = " << pow(2, 4) << endl;
-    cout << "pow(2, 4) = " << binaryExponentiation(2, 4) << endl;
-    cout << "pow(2, 4) = " << pingalaPower(2, 4) << endl;
+    cout << "Naive pow(2, 4) = " << pow(2, 4) << endl;
+    cout << "Binary exponentiation pow(2, 4) = " << binaryExponentiation(2, 4) << endl;
+    cout << "Pingala pow(2, 4) = " << pingalaPower(2, 4) << endl;
+    cout << "Peasant pow(2, 4) = " << peasantPower(2, 4) << endl;
 }
