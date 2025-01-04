@@ -73,4 +73,6 @@ int main() {
     cout << "Binary exponentiation pow(2, 4) = " << binaryExponentiation(2, 4) << endl;
     cout << "Pingala pow(2, 4) = " << pingalaPower(2, 4) << endl;
     cout << "Peasant pow(2, 4) = " << peasantPower(2, 4) << endl;
+
+    return 0;
 }
