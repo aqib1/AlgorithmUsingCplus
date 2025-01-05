@@ -3,8 +3,8 @@
 
 class Solution {
 
-  // time complexity OLog(N) or O(h)
-  // Space complexity OLog(N) or O(h)
+  // time complexity best-case/avg OLog(N) or O(h) and O(n) in worst-case
+  // Space complexity best-case/avg OLog(N) or O(h) and O(n) in worst-case
 private:
   void addChildNodes(TreeNode* root, int val) {
     if(val > root->val) {
