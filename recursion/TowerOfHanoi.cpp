@@ -4,6 +4,7 @@
 #include "iostream"
 using namespace std;
 
+// Time complexity of tower of hanoi is O(2^n) and space O(n)
 class Solution {
 public:
   int count = 0;
