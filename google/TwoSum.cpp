@@ -7,26 +7,21 @@ using namespace std;
 
 class TwoSum {
   public:
-  // Time complexity O(n) and space O(n)
+  // Time complexity O(n) and space complexity O(n)
     vector<int> twoSum(
         vector<int>& nums,
         int target
      ) {
       unordered_map<int, int> hash;
-      vector<int> res;
-      for (int i = 0; i < nums.size(); i++) {
-        hash[nums[i]] = i;
-      }
       for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (hash.find(complement) != hash.end() && hash[complement] != i) {
-          res.push_back(i);
-          res.push_back(hash[complement]);
-          return res;
+          return {i, hash[complement]};
         }
+        hash[nums[i]] = i;
       }
       // If no valid pair is found, return an empty vector
-      return res;
+      return {};
     }
 };
 
