@@ -7,6 +7,7 @@ using namespace std;
 
 class TwoSum {
   public:
+  // Time complexity O(n) and space O(n)
     vector<int> twoSum(
         vector<int>& nums,
         int target
